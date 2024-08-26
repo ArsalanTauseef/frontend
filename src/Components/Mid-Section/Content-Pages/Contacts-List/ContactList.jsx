@@ -34,7 +34,9 @@ export const ContactList = () => {
 
   // Fetch contacts from the API
   const fetchData = () => {
-    fetch("https://backend-git-main-arsalantauseefs-projects.vercel.app/api/mycontacts")
+    fetch(
+      "https://backend-git-main-arsalantauseefs-projects.vercel.app/api/mycontacts"
+    )
       .then((res) => res.json())
       .then((data) => {
         setApiData(data);
@@ -71,9 +73,12 @@ export const ContactList = () => {
   // Handle contact deletion
   const handleDelete = (id) => {
     console.log("front end ID", id);
-    fetch(`https://backend-git-main-arsalantauseefs-projects.vercel.app/api/deletecontact/${id}`, {
-      method: "DELETE",
-    })
+    fetch(
+      `https://backend-git-main-arsalantauseefs-projects.vercel.app/api/deletecontact/${id}`,
+      {
+        method: "DELETE",
+      }
+    )
       .then((res) => {
         if (res.ok) {
           // Update the state to reflect the deletion
@@ -108,7 +113,7 @@ export const ContactList = () => {
                   src={
                     item.profileIMG ? item.profileIMG : "https://feji.us/mi6be7"
                   }
-                  alt="Profile"
+                  alt="Picture Not Loaded"
                 />
                 <h3>
                   {item.name.firstname} {item.name.lastname}
