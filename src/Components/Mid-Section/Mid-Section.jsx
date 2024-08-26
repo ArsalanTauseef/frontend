@@ -25,14 +25,18 @@ export const MidSection = () => {
     shouldFetch,
     setFetchData,
   } = useOutletContext();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const addContact = (event) => {
     event.preventDefault();
     const data = {
       name: {
-        firstname: name.firstname.charAt(0).toUpperCase() + name.firstname.slice(1).toLowerCase(),
-        lastname: name.lastname.charAt(0).toUpperCase() + name.lastname.slice(1).toLowerCase(),
+        firstname:
+          name.firstname.charAt(0).toUpperCase() +
+          name.firstname.slice(1).toLowerCase(),
+        lastname:
+          name.lastname.charAt(0).toUpperCase() +
+          name.lastname.slice(1).toLowerCase(),
       },
       email,
       gender,
@@ -44,8 +48,8 @@ export const MidSection = () => {
     };
 
     const url = editId
-      ? `http://localhost:4000/api/updatecontact/${editId}`
-      : "http://localhost:4000/api/addcontact/";
+      ? `https://backend-git-main-arsalantauseefs-projects.vercel.app/api/updatecontact/${editId}`
+      : "https://backend-git-main-arsalantauseefs-projects.vercel.app/api/addcontact/";
     const method = editId ? "PATCH" : "POST";
     fetch(url, {
       method,
@@ -69,7 +73,7 @@ export const MidSection = () => {
         setGender("");
         setProfImg("");
         setEditId(null);
-        navigate('/contactlist')
+        navigate("/contactlist");
       }
     });
   };
@@ -176,15 +180,15 @@ export const MidSection = () => {
             }}
           ></textarea>
         </div>
-        
+
         <div id="targetBtn">
-        <button
-          onClick={(event) => {
-            addContact(event);
-          }}
-        >
-          {editId ? "UPDATE" : "SUBMIT"}
-        </button>
+          <button
+            onClick={(event) => {
+              addContact(event);
+            }}
+          >
+            {editId ? "UPDATE" : "SUBMIT"}
+          </button>
         </div>
       </form>
     </main>

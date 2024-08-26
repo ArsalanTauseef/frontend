@@ -34,7 +34,7 @@ export const ContactList = () => {
 
   // Fetch contacts from the API
   const fetchData = () => {
-    fetch("http://localhost:4000/api/mycontacts")
+    fetch("https://backend-git-main-arsalantauseefs-projects.vercel.app/api/mycontacts")
       .then((res) => res.json())
       .then((data) => {
         setApiData(data);
@@ -71,7 +71,7 @@ export const ContactList = () => {
   // Handle contact deletion
   const handleDelete = (id) => {
     console.log("front end ID", id);
-    fetch(`http://localhost:4000/api/deletecontact/${id}`, {
+    fetch(`https://backend-git-main-arsalantauseefs-projects.vercel.app/api/deletecontact/${id}`, {
       method: "DELETE",
     })
       .then((res) => {
